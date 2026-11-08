@@ -1,0 +1,24 @@
+/* A reserved top strip keeps the portfolio exit clear of each demonstration. */
+:root{--velnor-demo-bar-height:calc(48px + env(safe-area-inset-top,0px))}
+body.velnor-demo{padding-top:var(--velnor-demo-bar-height)}
+.velnor-demo-bar,.velnor-demo-bar *{box-sizing:border-box}
+.velnor-demo-bar{position:fixed;inset:0 0 auto;z-index:3000;display:flex;align-items:center;justify-content:space-between;gap:12px;height:var(--velnor-demo-bar-height);padding:env(safe-area-inset-top,0px) max(14px,env(safe-area-inset-right,0px)) 0 max(14px,env(safe-area-inset-left,0px));border-bottom:1px solid #d4b48355;background:#0b0b09;color:#efede5;font:11px/1.3 Arial,Helvetica,sans-serif;text-shadow:none}
+.velnor-demo-label{display:flex;align-items:center;gap:10px;white-space:nowrap;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#bcb8ab}
+.velnor-demo-label b{font-weight:500;color:#d4b483}
+.velnor-demo-bar .velnor-demo-back{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;min-width:156px;padding:0 12px;border:0;border-left:1px solid #d4b48333;border-radius:0;background:transparent;color:#efede5;font:11px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.01em;text-decoration:none;white-space:nowrap;transition:background .18s,color .18s}
+.velnor-demo-back>span{font-size:18px;color:#d4b483}
+.velnor-demo-bar .velnor-demo-back:hover{background:#d4b48318;color:#e9d2af}
+.velnor-demo-bar .velnor-demo-back:focus-visible{outline:2px solid #d4b483;outline-offset:-3px;background:#d4b48318}
+.velnor-demo .skip:focus,.velnor-demo .skip-link:focus{top:calc(var(--velnor-demo-bar-height) + 8px);z-index:3100}
+/* Atelier uses fixed headers, an opening curtain and an immersive home. */
+.velnor-demo[data-demo="atelier-souissi"] .header,
+.velnor-demo[data-demo="atelier-souissi"] .menu,
+.velnor-demo[data-demo="atelier-souissi"] .opening,
+.velnor-demo[data-demo="atelier-souissi"] .route-transition{top:var(--velnor-demo-bar-height)}
+.velnor-demo[data-demo="atelier-souissi"] .home-experience{height:calc(100svh - var(--velnor-demo-bar-height));min-height:0}
+/* Zahrawi's header remains sticky beneath the reserved strip. */
+.velnor-demo[data-demo="azzahrawi"] .site-header{top:var(--velnor-demo-bar-height)}
+/* Maison's header stays in the normal page flow. */
+.velnor-demo[data-demo="maison-elegance"] .hero{min-height:calc(100svh - var(--velnor-demo-bar-height))}
+@media(max-width:600px){.velnor-demo-label{gap:6px;font-size:8px;letter-spacing:.06em}.velnor-demo-label b{display:none}.velnor-demo-bar .velnor-demo-back{min-width:150px;padding-inline:9px;font-size:10px}}
+@media(prefers-reduced-motion:reduce){.velnor-demo-bar .velnor-demo-back{transition:none}}
